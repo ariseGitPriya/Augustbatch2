@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-01-03T15:09:15 IST" name="Default suite" finished-at="2024-01-03T15:09:19 IST" duration-ms="3845">
+    <groups>
+    </groups>
+    <test started-at="2024-01-03T15:09:15 IST" name="Default test" finished-at="2024-01-03T15:09:19 IST" duration-ms="3845">
+      <class name="test.VerifyShoppingCategoriesTest">
+        <test-method is-config="true" signature="configureReports()[pri:0, instance:test.VerifyShoppingCategoriesTest@54c5a2ff]" started-at="2024-01-03T15:09:15 IST" name="configureReports" finished-at="2024-01-03T15:09:15 IST" duration-ms="214" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configureReports -->
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:test.VerifyShoppingCategoriesTest@54c5a2ff]" started-at="2024-01-03T15:09:15 IST" name="openApplication" finished-at="2024-01-03T15:09:18 IST" duration-ms="2815" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApplication -->
+        <test-method signature="verifyIfUserIsAbleToSearchProduc()[pri:0, instance:test.VerifyShoppingCategoriesTest@54c5a2ff]" started-at="2024-01-03T15:09:18 IST" name="verifyIfUserIsAbleToSearchProduc" finished-at="2024-01-03T15:09:19 IST" duration-ms="791" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyIfUserIsAbleToSearchProduc -->
+      </class> <!-- test.VerifyShoppingCategoriesTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
