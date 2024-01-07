@@ -42,7 +42,7 @@ public class VerifyShoppingCategoriesTest extends BaseTest {
 	}
 	
 	@Test
-	public void verifyIfUserIsAbleToSearchProduc()
+	public void verifyIfUserIsAbleToSearchProduct()
 	{
 		NaptoolHomePage naptoolHomePage = new NaptoolHomePage(driver);
 		naptoolHomePage.enterProductName("cooker");
