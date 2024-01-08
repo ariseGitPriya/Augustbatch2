@@ -14,7 +14,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CartPage {
 	
 	@FindBy (xpath="//ul[@id='cartData']")private List<WebElement>products;
-	@FindBy (xpath="(//a[@class='red_button2'])[1]")private WebElement proceedToCheckOut;
+	@FindBy(xpath="(//a[@class='red_button2'])[1]")private WebElement proceedToCheckOut;
+	@FindBy(xpath="(//a[@onclick='cart.continueShopping()'])[1]")private WebElement continueShopping;
+	@FindBy(xpath="//a[@onclick='cart.remove(670762949)']")private  WebElement remove;
 	
 	public CartPage(WebDriver driver)
 	{
@@ -26,6 +28,20 @@ public class CartPage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
 		wait.until(ExpectedConditions.visibilityOf(proceedToCheckOut));
 		return products.size();
+	}
+	
+	public void clickOnContinueShopping()
+	{
+		
+		continueShopping.click();
+	}
+	
+	public void clickOnRemove(WebDriver driver) 
+	{
+	    WebDriverWait wait=new  WebDriverWait(driver,Duration.ofMillis(5000));
+	    wait.until(ExpectedConditions.visibilityOf(proceedToCheckOut));
+	    remove.click();
+	    
 	}
 
 }

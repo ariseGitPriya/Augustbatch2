@@ -36,10 +36,11 @@ public class ProductSearchTest extends BaseTest{
 		NaptoolHomePage naptoolhomepage = new NaptoolHomePage(driver);
 		naptoolhomepage.enterProductName("iphones");
 		naptoolhomepage.ClickOnSearchIcon();
-		SoftAssert softassert = new SoftAssert();
+		String title=driver.getTitle();
+		Assert.assertTrue(title.contains("iphones"));
 		ProductResultPage productresultpage = new ProductResultPage(driver);
-		softassert.assertTrue(productresultpage.getNumberOfProducts()==0);
-		softassert.assertAll();
+		Assert.assertTrue(productresultpage.getNumberOfProducts()==0);
+		
 		
 	}
 

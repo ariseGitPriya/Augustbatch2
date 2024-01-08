@@ -5,8 +5,8 @@
     <classes>
       <class name="test.AddToCartTest">
         <methods>
-          <include name="verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption"/>
           <include name="openApplication"/>
+          <include name="verifyIfUserIsAbleToAddMultipleProductToCart"/>
         </methods>
       </class> <!-- test.AddToCartTest -->
     </classes>

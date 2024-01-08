@@ -13,6 +13,7 @@ public class NaptoolHomePage {
 	@FindBy (xpath=("//a[@id='login-panel-link']"))private WebElement login;
 	@FindBy (xpath="//a[text()='Track Order']")private WebElement trackOrder;
 	@FindBy (xpath="//span[@class='arrowNav']")private WebElement shopingCategory;
+	@FindBy(xpath="//span[@class='arrowNav']")private WebElement shoppingCategoriesDropdown;
 	@FindBy (xpath="//ul[@id='mainMenu_UL']//li")private List<WebElement> categories;
 	@FindBy (xpath="(//a[text()='Mobile Handsets'])[1]")private WebElement subCategories;
 	@FindBy (xpath="//li[@class='head']//h1")private WebElement categoryHeadings;
@@ -32,6 +33,10 @@ public class NaptoolHomePage {
 	public void clickOnTrack()
 	{
 		trackOrder.click();
+	}
+	public void clickonshoppingCategoriesdropdown() 
+	{
+		shoppingCategoriesDropdown.click();
 	}
 	public void selectShopingCategories(WebDriver driver,int index)
 	{

@@ -1,5 +1,7 @@
 package pojo;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -13,6 +15,7 @@ public class LaunchBrawser {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.naaptol.com/");
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(5000));
 		return driver;
 		
 		

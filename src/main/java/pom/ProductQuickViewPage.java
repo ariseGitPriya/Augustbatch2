@@ -9,7 +9,7 @@ public class ProductQuickViewPage {
 	
     @FindBy (xpath="//div[@id='square_Details']//h1")private WebElement productName;
 	@FindBy (xpath="//span[@class='offer-price']")private WebElement productPrice;
-	@FindBy (xpath="//a[@id='cart-panel-button-0']")private WebElement clickHereToBuy;
+	@FindBy (xpath="//a[@title='Buy online']")private WebElement clickHereToBuy;
 	@FindBy (xpath="//span[@class='ship-price']")private WebElement shippingCharges;
 	
 	public ProductQuickViewPage(WebDriver driver)
