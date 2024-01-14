@@ -1,5 +1,7 @@
 package pom;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProductQuickViewPage {
 	
-    @FindBy (xpath="//div[@id='square_Details']//h1")private WebElement productName;
-	@FindBy (xpath="//span[@class='offer-price']")private WebElement productPrice;
-	@FindBy (xpath="//a[@title='Buy online']")private WebElement clickHereToBuy;
+	@FindBy (xpath="//div[@id='square_Details']//h1")private List<WebElement> productName;
+	@FindBy (xpath="//span[text()='Click here to Buy']")private WebElement clickHereToBuy;
+	@FindBy (xpath="//span[@class='offer-price']")private WebElement price;
 	@FindBy (xpath="//span[@class='ship-price']")private WebElement shippingCharges;
 	
 	public ProductQuickViewPage(WebDriver driver)
@@ -17,26 +19,26 @@ public class ProductQuickViewPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public String getProductName()
+	public String getProductName(int product)
 	{
-		return productName.getText();
+		return productName.get(product).getText();
 	}
 	
-	public String getProductPrice()
+	public double getPrice()
 	{
-		return productPrice.getText();
+		return Double.parseDouble(price.getText());
 	}
 	
-	public void clickOnClickHereToBuy()
+	public double getShippingCharges()
+	{
+	    String charges=shippingCharges.getText();
+		String [] charge = charges.split(" ");
+		return Double.parseDouble(charge[1]);
+	}
+	 
+	public void clickHereToBuy()
 	{
 		clickHereToBuy.click();
-	}
-	
-	public String getShippingCharges()
-	{
-		String charges = shippingCharges.getText();
-		String [] charge = charges.split(" ");
-		return charge[1];
 	}
 
 }

@@ -11,7 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 public class ProductResultPage extends BasePage {
 	@FindBy (xpath="//div[@class='grid_Square ']")private List<WebElement>products;
 	@FindBy (xpath="//a[@class='bt_compare icon chat quickFancyBox']")private List<WebElement>quickView;
-	@FindBy(xpath="//div[@class='item_title']")private List<WebElement> productTitle;
+	@FindBy(xpath="//div[@class='item_title']")private List<WebElement> productName;
+	@FindBy (xpath="//span[@class='offer-price']")private List<WebElement>price;
 	
 	public ProductResultPage(WebDriver driver)
 	{
@@ -37,9 +38,14 @@ public class ProductResultPage extends BasePage {
 		 products.get(product).click();
 	}
 	
-	public String getProductTitle(int product) 
-	 {
-		return productTitle.get(product).getText();
-	 }
+	public String getProductName(int product) 
+	{
+		return productName.get(product).getText();
+	}
+	
+	public double getPrice(int index)
+	{
+		return Double.parseDouble(price.get(index).getText());
+	}
 
 }
