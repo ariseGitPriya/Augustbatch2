@@ -2,19 +2,19 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-08T19:06:46 IST" name="Default suite" finished-at="2024-01-08T19:06:50 IST" duration-ms="4337">
+  <suite started-at="2024-01-14T07:28:52 IST" name="Default suite" finished-at="2024-01-14T07:28:57 IST" duration-ms="4274">
     <groups>
     </groups>
-    <test started-at="2024-01-08T19:06:46 IST" name="Default test" finished-at="2024-01-08T19:06:50 IST" duration-ms="4337">
+    <test started-at="2024-01-14T07:28:52 IST" name="Default test" finished-at="2024-01-14T07:28:57 IST" duration-ms="4274">
       <class name="test.AddToCartTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:test.AddToCartTest@4d5650ae]" started-at="2024-01-08T19:06:46 IST" name="openApplication" finished-at="2024-01-08T19:06:49 IST" duration-ms="2920" status="PASS">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:test.AddToCartTest@3012646b]" started-at="2024-01-14T07:28:52 IST" name="openApplication" finished-at="2024-01-14T07:28:55 IST" duration-ms="2963" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method signature="verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption()[pri:0, instance:test.AddToCartTest@4d5650ae]" started-at="2024-01-08T19:06:49 IST" name="verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption" finished-at="2024-01-08T19:06:50 IST" duration-ms="1371" status="PASS">
+        <test-method signature="addSingleProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmount()[pri:0, instance:test.AddToCartTest@3012646b]" started-at="2024-01-14T07:28:55 IST" name="addSingleProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmount" finished-at="2024-01-14T07:28:57 IST" duration-ms="1273" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption -->
+        </test-method> <!-- addSingleProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmount -->
       </class> <!-- test.AddToCartTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

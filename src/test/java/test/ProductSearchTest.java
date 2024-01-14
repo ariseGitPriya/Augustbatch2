@@ -2,6 +2,7 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -10,11 +11,11 @@ import pom.NaptoolHomePage;
 import pom.ProductResultPage;
 
 public class ProductSearchTest extends BaseTest{
-	
+	@Parameters({"browser"})
 	@BeforeMethod
-	public void openApplication()
+	public void openApplication(String browser)
 	{
-		driver=LaunchBrawser.chrome();
+		driver=LaunchBrawser.browser(browser);
 	}
 	@Test
 	public void verifyIfProductsAreDisplayedOnValidSearch()
@@ -37,7 +38,8 @@ public class ProductSearchTest extends BaseTest{
 		naptoolhomepage.enterProductName("iphones");
 		naptoolhomepage.ClickOnSearchIcon();
 		String title=driver.getTitle();
-		Assert.assertTrue(title.contains("iphones"));
+		SoftAssert softassert = new SoftAssert();
+		softassert.assertTrue(title.contains("iphones"));
 		ProductResultPage productresultpage = new ProductResultPage(driver);
 		Assert.assertTrue(productresultpage.getNumberOfProducts()==0);
 		
