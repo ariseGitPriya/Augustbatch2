@@ -23,6 +23,7 @@ public class CartPage {
 	@FindBy (xpath="//li[@class='head_Amount']")private List<WebElement>orderAmount;
 	@FindBy (xpath="//ul[@id='cartTotal']//label")private WebElement cartAmount;
 	
+	
 	public CartPage(WebDriver driver)
 	{
 		PageFactory.initElements(driver,this);
@@ -69,12 +70,21 @@ public class CartPage {
 	
 	public double getOrderAmount(int index)
 	{
-		return Double.parseDouble(orderAmount.get(index).getText().substring(3));
+		
+		 String charges=orderAmount.get(index).getText();
+		 String [] charge = charges.split(" ");
+	     return Double.parseDouble(charge[0]);
 	}
 	
 	public double getCartAmount(int index)
 	{
+		
 		return Double.parseDouble(cartAmount.getText().substring(3));
+	}
+	
+	public void clickOnProceedToCkeckOut()
+	{
+		proceedToCheckOut.click();
 	}
 
 }
