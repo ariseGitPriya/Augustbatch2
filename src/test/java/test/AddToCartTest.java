@@ -172,10 +172,10 @@ public class AddToCartTest extends BaseTest {
 		double shippingPrice=cartPage.getShippingPrice(1);
 		System.out.println(shippingPrice);
 		
-		//double orderAmount=cartPage.getOrderAmount(1);
-		//System.out.println(orderAmount);
+		double orderAmount=cartPage.getOrderAmount(1);
+		System.out.println(orderAmount);
 		
-		//Assert.assertTrue(unitPrice+shippingPrice==orderAmount);
+		Assert.assertTrue(unitPrice+shippingPrice==orderAmount);
 	
 	}
 	
