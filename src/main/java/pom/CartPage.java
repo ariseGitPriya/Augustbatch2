@@ -14,14 +14,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CartPage {
 	
 	@FindBy (xpath="//ul[@id='cartData']")private List<WebElement>products;
-	@FindBy(xpath="(//a[@onclick='cart.submitOrder()'])[1]")private WebElement proceedToCheckOut;
-	@FindBy(xpath="(//a[@onclick='cart.continueShopping()'])[1]")private WebElement continueShopping;
-	@FindBy(xpath="//a[@onclick='cart.remove(670762949)']")private  WebElement remove;
+	@FindBy (xpath="(//a[@onclick='cart.submitOrder()'])[1]")private WebElement proceedToCheckOut;
+	@FindBy (xpath="(//a[@onclick='cart.continueShopping()'])[1]")private WebElement continueShopping;
+	@FindBy (xpath="//a[@onclick='cart.remove(670762949)']")private  WebElement remove;
 	@FindBy (xpath="//div[@class='cart_info']//h2//a")private List<WebElement> productName;
 	@FindBy (xpath="(//li[@class='head_UPrice'])")private List<WebElement> unitPrice;
 	@FindBy (xpath="//li[@class='head_ship']")private List<WebElement> shippingCharges;
 	@FindBy (xpath="//li[@class='head_Amount']")private List<WebElement>orderAmount;
 	@FindBy (xpath="//ul[@id='cartTotal']//label")private WebElement cartAmount;
+	@FindBy (xpath="//span[@id='totalPayableAmount']")private WebElement tatalPayableAmount;
 	
 	
 	public CartPage(WebDriver driver)
@@ -85,6 +86,10 @@ public class CartPage {
 	public void clickOnProceedToCkeckOut()
 	{
 		proceedToCheckOut.click();
+	}
+	public double getTotalPayableAmount()
+	{
+		return Double.parseDouble(tatalPayableAmount.getText());
 	}
 
 }
