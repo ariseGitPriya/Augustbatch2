@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import pojo.LaunchBrawser;
 import pom.CartPage;
 import pom.NaptoolHomePage;
+import pom.OrderSummaryPage;
 import pom.ProductDescriptionPage;
 import pom.ProductQuickViewPage;
 import pom.ProductResultPage;
@@ -185,7 +186,7 @@ public class AddToCartTest extends BaseTest {
 	public void addTwoProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmountAndVerifyIfSumOfOrderAmountIsEqualToCartAmount()
 	{
 		NaptoolHomePage naptoolHomePage = new NaptoolHomePage(driver);
-		naptoolHomePage.enterProductName("mobile");
+		naptoolHomePage.enterProductName("cooker");
 		naptoolHomePage.ClickOnSearchIcon();
 		
 		productResultPage= new ProductResultPage(driver);
@@ -199,10 +200,21 @@ public class AddToCartTest extends BaseTest {
 		productResultPage.clickOnQuickView(driver, 1);
 		productQuickViewPage.clickHereToBuy();
 		
-		//double firstProductPrice=cartPage.getUnitPrice(0);
-		//System.out.println(firstProductPrice);	
+		double orderAmount1=cartPage.getOrderAmount(0);
+		System.out.println(orderAmount1);
+		double orderAmount2= cartPage.getOrderAmount(1);
+		System.out.println(orderAmount2);
+		//double expectedCartAmount= cartPage.getTotalPayableAmount();
+		//System.out.println(expectedCartAmount);
+		
+		
+		
+		
+			
 		
 	}
+	
+	
 	
 	
 	

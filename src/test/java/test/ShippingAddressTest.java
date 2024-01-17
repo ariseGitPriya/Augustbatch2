@@ -7,6 +7,7 @@ import pojo.LaunchBrawser;
 import pom.CartPage;
 import pom.LoginPage;
 import pom.NaptoolHomePage;
+import pom.OrderSummaryPage;
 import pom.ProductDescriptionPage;
 import pom.ProductResultPage;
 import pom.ShippingAddressPage;
@@ -39,7 +40,7 @@ public class ShippingAddressTest extends BaseTest{
 	    cartPage.clickOnProceedToCkeckOut();
 	    
 	    LoginPage loginPage = new LoginPage(driver);
-	    loginPage.enterMobileNo("9730271269");
+	    loginPage.enterMobileNo("9881628329");
 	    loginPage.clickOnContinueButton();
 	    Thread.sleep(50000);
 	    loginPage.enterOTP("");
@@ -52,12 +53,16 @@ public class ShippingAddressTest extends BaseTest{
 	    shippingAddressPage.enterAddress("Baramati");
 	    shippingAddressPage.enterLandMark("School");
 	    shippingAddressPage.enterPincode("413122");
-	    shippingAddressPage.selectState("MAHARASTRA");
+	    //shippingAddressPage.selectState("MAHARASTRA");
 	    shippingAddressPage.enterMobileNo("9730271269");
 	    shippingAddressPage.clickOnSaveAndProceed();
+	    shippingAddressPage.clickOnShipToThisAddress();
+	    shippingAddressPage.clickOnCashOnDelivery();
+	    shippingAddressPage.clickOnPlaceOrder();
 	    
-	    
-	    
+		OrderSummaryPage order = new OrderSummaryPage(driver);
+		double o=order.getTotalAmount(0);
+		System.out.println(o);   
 		
 		
 	 }

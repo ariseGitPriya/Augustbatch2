@@ -19,6 +19,9 @@ public class ShippingAddressPage {
 	@FindBy (xpath="//input[@id='mobile']")private WebElement mobileNo;
 	@FindBy (xpath="//input[@id='landline']")private WebElement landLineNo;
 	@FindBy (xpath="//a[@id='addEditButton']")private WebElement saveAndProceed;
+	@FindBy (xpath="//a[@id='shipAddress1']")private WebElement shipToThisAddress;
+	@FindBy (xpath="//input[@id='Cash On Delivery_radiobtn']")private WebElement cashOnDelivery;
+	@FindBy (xpath="//a[text()='Click here to Place Order']")private WebElement placeOrder;
 	
 	public ShippingAddressPage(WebDriver driver)
 	{
@@ -75,6 +78,19 @@ public class ShippingAddressPage {
 	public void clickOnSaveAndProceed()
 	{
 		saveAndProceed.click();
+	}
+	public void clickOnShipToThisAddress()
+	{
+		shipToThisAddress.click();
+	}
+	public void clickOnCashOnDelivery()
+	{
+		cashOnDelivery.click();
+		
+	}
+	public void clickOnPlaceOrder()
+	{
+		placeOrder.click();
 	}
 	
 	
