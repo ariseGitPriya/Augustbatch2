@@ -1,9 +1,18 @@
 package test;
 
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import pojo.LaunchBrawser;
 import pom.CartPage;
@@ -12,8 +21,19 @@ import pom.OrderSummaryPage;
 import pom.ProductDescriptionPage;
 import pom.ProductQuickViewPage;
 import pom.ProductResultPage;
+import utility.Reports;
 
+@Listeners(test.Listeners.class)
 public class AddToCartTest extends BaseTest {
+	
+	ExtentReports extentReports;
+	ExtentTest test;
+	@BeforeTest
+	public void configureReports() {
+	extentReports=Reports.generateReports();
+	}
+	
+	
 	ProductResultPage productResultPage;
 	ProductQuickViewPage productQuickViewPage;
 	CartPage cartPage;
@@ -28,6 +48,7 @@ public class AddToCartTest extends BaseTest {
 	@Test
 	public void verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption()
 	{
+		test=extentReports.createTest("verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption");
 		NaptoolHomePage naptoolhomepage  = new NaptoolHomePage(driver);
 		naptoolhomepage.enterProductName("Mobiles");
 		naptoolhomepage.ClickOnSearchIcon();
@@ -47,6 +68,7 @@ public class AddToCartTest extends BaseTest {
 	@Test
 	public void verifyIfUserIsAbleToAddMultipleProductToCart()
 	{
+		test=extentReports.createTest("verifyIfUserIsAbleToAddMultipleProductToCart");
 		NaptoolHomePage naptoolhomepage  = new NaptoolHomePage(driver);
 		naptoolhomepage.enterProductName("Mobiles");
 		naptoolhomepage.ClickOnSearchIcon();
@@ -74,6 +96,7 @@ public class AddToCartTest extends BaseTest {
 	@Test
 	public void verifyIfUserAbleToRemoveProductFromCart()
 	{
+		test=extentReports.createTest("verifyIfUserAbleToRemoveProductFromCart");
 		NaptoolHomePage naptoolhomepage  = new NaptoolHomePage(driver);
 		naptoolhomepage.enterProductName("Mobiles");
 		naptoolhomepage.ClickOnSearchIcon();
@@ -94,6 +117,7 @@ public class AddToCartTest extends BaseTest {
 	@Test
 	public void verifyIfUserAbleToAddToCartUsingProductDescription()
 	{
+		test=extentReports.createTest("verifyIfUserAbleToAddToCartUsingProductDescription");
 		NaptoolHomePage naptoolhomepage  = new NaptoolHomePage(driver);
 		naptoolhomepage.enterProductName("Mobiles");
 		naptoolhomepage.ClickOnSearchIcon();
@@ -111,6 +135,7 @@ public class AddToCartTest extends BaseTest {
 	@Test
 	public void VerifyProdutsDetailsDisplayedInProductSearchResultIsSimilarToDetailsDisplayedInQuickViewTab()
 	{
+		test=extentReports.createTest("VerifyProdutsDetailsDisplayedInProductSearchResultIsSimilarToDetailsDisplayedInQuickViewTab");
 		NaptoolHomePage naptoolHomePage = new NaptoolHomePage(driver);
 		naptoolHomePage.enterProductName("mobile");
 		naptoolHomePage.ClickOnSearchIcon();
@@ -131,6 +156,7 @@ public class AddToCartTest extends BaseTest {
 	@Test
 	public void verifyIfProductDetailOnShoppingCartAreSimilarToProductAddedFromQuickViewTab()
 	{
+		test=extentReports.createTest(" verifyIfProductDetailOnShoppingCartAreSimilarToProductAddedFromQuickViewTab");
 		NaptoolHomePage naptoolHomePage = new NaptoolHomePage(driver);
 		naptoolHomePage.enterProductName("mobile");
 		naptoolHomePage.ClickOnSearchIcon();
@@ -156,6 +182,7 @@ public class AddToCartTest extends BaseTest {
 	//11
 	@Test
 	public void addSingleProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmount()throws InterruptedException{
+		test=extentReports.createTest("addSingleProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmount");
 		NaptoolHomePage naptoolHomePage = new NaptoolHomePage(driver);
 		naptoolHomePage.enterProductName("mobile");
 		naptoolHomePage.ClickOnSearchIcon();
@@ -185,6 +212,7 @@ public class AddToCartTest extends BaseTest {
 	@Test
 	public void addTwoProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmountAndVerifyIfSumOfOrderAmountIsEqualToCartAmount()
 	{
+		test=extentReports.createTest("addTwoProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmountAndVerifyIfSumOfOrderAmountIsEqualToCartAmount");
 		NaptoolHomePage naptoolHomePage = new NaptoolHomePage(driver);
 		naptoolHomePage.enterProductName("cooker");
 		naptoolHomePage.ClickOnSearchIcon();
@@ -206,13 +234,18 @@ public class AddToCartTest extends BaseTest {
 		System.out.println(orderAmount2);
 		//double expectedCartAmount= cartPage.getTotalPayableAmount();
 		//System.out.println(expectedCartAmount);
-		
-		
-		
-		
 			
 		
 	}
+
+	
+
+	/*
+	@AfterTest
+	public void publishReports() {
+		extentReports.flush();
+	}
+	*/	
 	
 	
 	
