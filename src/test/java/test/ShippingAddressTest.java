@@ -59,10 +59,17 @@ public class ShippingAddressTest extends BaseTest{
 	    shippingAddressPage.clickOnShipToThisAddress();
 	    shippingAddressPage.clickOnCashOnDelivery();
 	    shippingAddressPage.clickOnPlaceOrder();
+	    OrderSummaryPage orderSummaryPage = new OrderSummaryPage(driver);
+	    String price= orderSummaryPage.getProductPrice();
+	    System.out.println(price);
 	    
-		OrderSummaryPage order = new OrderSummaryPage(driver);
-		double o=order.getTotalAmount(0);
-		System.out.println(o);   
+	    Thread.sleep(5000);
+	    //shippingAddressPage.clickOnTrackOrder();
+	   // shippingAddressPage.clickOnCancleOrder();
+	    
+	    
+	    
+  
 		
 		
 	 }
