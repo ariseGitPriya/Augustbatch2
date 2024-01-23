@@ -40,7 +40,7 @@ public class ShippingAddressTest extends BaseTest{
 	    cartPage.clickOnProceedToCkeckOut();
 	    
 	    LoginPage loginPage = new LoginPage(driver);
-	    loginPage.enterMobileNo("9881628329");
+	    loginPage.enterMobileNo("9730271269");
 	    loginPage.clickOnContinueButton();
 	    Thread.sleep(50000);
 	    loginPage.enterOTP("");
@@ -60,12 +60,12 @@ public class ShippingAddressTest extends BaseTest{
 	    shippingAddressPage.clickOnCashOnDelivery();
 	    shippingAddressPage.clickOnPlaceOrder();
 	    OrderSummaryPage orderSummaryPage = new OrderSummaryPage(driver);
-	    String price= orderSummaryPage.getProductPrice();
-	    System.out.println(price);
-	    
+	    String productName= orderSummaryPage.getProductName();
+	    System.out.println(productName);
+	    System.out.println(orderSummaryPage.getTotalAmount());
 	    Thread.sleep(5000);
-	    //shippingAddressPage.clickOnTrackOrder();
-	   // shippingAddressPage.clickOnCancleOrder();
+	    shippingAddressPage.clickOnTrackOrder();
+	    shippingAddressPage.clickOnCancleOrder();
 	    
 	    
 	    

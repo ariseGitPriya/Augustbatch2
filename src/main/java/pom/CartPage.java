@@ -20,8 +20,8 @@ public class CartPage {
 	@FindBy (xpath="//div[@class='cart_info']//h2//a")private List<WebElement> productName;
 	@FindBy (xpath="(//li[@class='head_UPrice'])")private List<WebElement> unitPrice;
 	@FindBy (xpath="//li[@class='head_ship']")private List<WebElement> shippingCharges;
-	@FindBy (xpath="//li[@class='head_Amount']")private List<WebElement>orderAmount;
-	@FindBy (xpath="//ul[@id='cartTotal']//label")private WebElement cartAmount;
+	@FindBy (xpath = "//ul[@id='cartData']//li[5]")private List<WebElement> orderAmount;
+	@FindBy (xpath = "(//ul[@id='cartTotal']//label)[1]") private WebElement cartAmount;
 	@FindBy (xpath="//span[@id='totalPayableAmount']")private WebElement tatalPayableAmount;
 	
 	
@@ -69,18 +69,18 @@ public class CartPage {
 		return Double.parseDouble(shippingCharges.get(index).getText().substring(3));
 	}
 	
-	public double getOrderAmount(int index)
-	{
-		
-		 String charges=orderAmount.get(index).getText();
-		 String [] charge = charges.split(" ");
-	     return Double.parseDouble(charge[0]);
+	public double getOrderAmount(WebDriver driver,int index) throws InterruptedException  {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(5000));
+		wait.until(ExpectedConditions.visibilityOf(cartAmount));
+//		Thread.sleep(2000);
+		return Double.parseDouble(orderAmount.get(index).getText().replace(",", ""));
 	}
 	
-	public double getCartAmount(int index)
-	{
-		
-		return Double.parseDouble(cartAmount.getText().substring(3));
+
+	public double getCartAmount() {
+		return Double.parseDouble(cartAmount.getText().substring(3).replace(",", ""));
+//		String a=cartAmount.getText().substring(3).replace(",", "");
+//		return Double.parseDouble(a);
 	}
 	
 	public void clickOnProceedToCkeckOut()

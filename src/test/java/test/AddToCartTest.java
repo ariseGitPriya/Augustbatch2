@@ -200,7 +200,7 @@ public class AddToCartTest extends BaseTest {
 		double shippingPrice=cartPage.getShippingPrice(1);
 		System.out.println(shippingPrice);
 		
-		double orderAmount=cartPage.getOrderAmount(1);
+		double orderAmount=cartPage.getOrderAmount(driver,1);
 		System.out.println(orderAmount);
 		
 		Assert.assertTrue(unitPrice+shippingPrice==orderAmount);
@@ -210,7 +210,7 @@ public class AddToCartTest extends BaseTest {
 	//12
 	
 	@Test
-	public void addTwoProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmountAndVerifyIfSumOfOrderAmountIsEqualToCartAmount()
+	public void addTwoProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmountAndVerifyIfSumOfOrderAmountIsEqualToCartAmount() throws InterruptedException
 	{
 		test=extentReports.createTest("addTwoProductToCartAndVerifyIfUnitPricePlusShippingPriceIsEqualToOrderAmountAndVerifyIfSumOfOrderAmountIsEqualToCartAmount");
 		NaptoolHomePage naptoolHomePage = new NaptoolHomePage(driver);
@@ -228,12 +228,12 @@ public class AddToCartTest extends BaseTest {
 		productResultPage.clickOnQuickView(driver, 1);
 		productQuickViewPage.clickHereToBuy();
 		
-		double orderAmount1=cartPage.getOrderAmount(0);
+		double orderAmount1=cartPage.getOrderAmount(driver,0);
 		System.out.println(orderAmount1);
-		double orderAmount2= cartPage.getOrderAmount(1);
+		double orderAmount2= cartPage.getOrderAmount(driver,1);
 		System.out.println(orderAmount2);
-		//double expectedCartAmount= cartPage.getTotalPayableAmount();
-		//System.out.println(expectedCartAmount);
+        double expectedCartAmount=cartPage.getCartAmount();
+		Assert.assertTrue(orderAmount1+orderAmount2==expectedCartAmount);
 			
 		
 	}
